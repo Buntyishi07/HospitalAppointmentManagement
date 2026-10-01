@@ -191,7 +191,11 @@ namespace HospitalAppointmentManagement.Controllers
 
         // This action receives the submitted appointment form.
         [HttpPost]
-        public IActionResult Appointment(int DoctorId, string PatientName, string Specialization)
+        public IActionResult Appointment(
+            int DoctorId,
+            string PatientName,
+            string Specialization,
+            DateTime AppointmentDate)
         {
             // Store the patient name in a cookie.
             Response.Cookies.Append("PatientName", PatientName);
@@ -207,6 +211,9 @@ namespace HospitalAppointmentManagement.Controllers
 
             // Store the specialization in ViewBag.
             ViewBag.Specialization = Specialization;
+
+            // Store the selected appointment date in ViewBag.
+            ViewBag.AppointmentDate = AppointmentDate;
 
             // Return the appointment confirmation view.
             return View("Appointment");

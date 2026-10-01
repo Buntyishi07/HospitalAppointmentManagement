@@ -28,41 +28,58 @@
 <body>
 
     @* Create the navigation bar. *@
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg modern-navbar">
 
-        @* Keep navigation content centered. *@
         <div class="container">
 
             @* Display the hospital name. *@
-            <a class="navbar-brand"
+            <a class="navbar-brand hospital-name"
                asp-controller="Home"
                asp-action="Index">
+
+                <span class="hospital-icon">+</span>
                 City Care Hospital
+
             </a>
 
+            @* Create the mobile navigation button. *@
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
             @* Display the navigation menu. *@
-            <div>
+            <div class="collapse navbar-collapse"
+                 id="mainNavigation">
 
-                @* Link to the doctor list. *@
-                <a class="btn btn-sm btn-light me-1"
-                   asp-controller="Home"
-                   asp-action="Index">
-                    Doctors
-                </a>
+                <div class="navbar-nav ms-auto">
 
-                @* Link to the API posts page. *@
-                <a class="btn btn-sm btn-light me-1"
-                   asp-controller="Home"
-                   asp-action="Posts">
-                    Posts
-                </a>
+                    @* Link to the doctor list. *@
+                    <a class="nav-link modern-nav-link"
+                       asp-controller="Home"
+                       asp-action="Index">
+                        Doctors
+                    </a>
 
-                @* Link to stored patient information. *@
-                <a class="btn btn-sm btn-light"
-                   asp-controller="Home"
-                   asp-action="PatientInfo">
-                    Patient Info
-                </a>
+                    @* Link to the API posts page. *@
+                    <a class="nav-link modern-nav-link"
+                       asp-controller="Home"
+                       asp-action="Posts">
+                        Posts
+                    </a>
+
+                    @* Link to stored patient information. *@
+                    <a class="nav-link modern-nav-link"
+                       asp-controller="Home"
+                       asp-action="PatientInfo">
+                        Patient Info
+                    </a>
+
+                </div>
 
             </div>
 
@@ -71,18 +88,28 @@
     </nav>
 
     @* Create the main page container. *@
-    <div class="container mt-4">
+    <main class="container main-content">
 
         @* Render the contents of each individual view. *@
         @RenderBody()
 
-    </div>
+    </main>
 
-    @* Create a simple footer. *@
-    <footer class="border-top mt-5 py-3 text-center text-muted">
+    @* Create a simple modern footer. *@
+    <footer class="modern-footer">
 
-        @* Display the project name. *@
-        Hospital Appointment Management System
+        <div class="container text-center">
+
+            @* Display the project name. *@
+            <p class="mb-1">
+                <strong>City Care Hospital</strong>
+            </p>
+
+            <small>
+                Hospital Appointment Management System
+            </small>
+
+        </div>
 
     </footer>
 

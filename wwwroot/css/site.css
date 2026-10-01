@@ -2,21 +2,170 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #f4f7fb;
+    color: #263238;
 }
 
 
-/* Give the main heading a normal hospital-style appearance. */
+/* Give the main heading a clean appearance. */
 
 h1 {
     margin-top: 10px;
+    color: #1769aa;
 }
 
 
-/* Add a small shadow to cards. */
+/* Give other headings the same website theme. */
+
+h2,
+h3,
+h4,
+h5 {
+    color: #1769aa;
+}
+
+
+/* Give cards a modern appearance. */
 
 .card {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+
+/* Style the appointment card heading. */
+
+.appointment-card .card-header {
+    background-color: #1769aa;
+    color: white;
+    padding: 18px 22px;
+}
+
+
+/* Keep the heading inside the blue card header white. */
+
+.appointment-card .card-header h3,
+.appointment-card .card-header h4 {
+    color: white;
+}
+
+
+/* Style the small text inside the appointment header. */
+
+.appointment-card .card-header p {
+    color: #e3f2fd;
+}
+
+
+/* Style the selected doctor information box. */
+
+.doctor-box {
+    background-color: #eef7fd;
+    border-left: 4px solid #1769aa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+/* Style the small selected doctor label. */
+
+.doctor-box small {
+    color: #6c757d;
+}
+
+
+/* Style the doctor name. */
+
+.doctor-box h5 {
+    margin-top: 4px;
+    margin-bottom: 3px;
+}
+
+
+/* Style form labels. */
+
+.form-label {
+    font-weight: 600;
+    color: #37474f;
+}
+
+
+/* Style text boxes and dropdowns. */
+
+.form-control,
+.form-select {
+    border-radius: 7px;
+    border: 1px solid #ced8e2;
+    padding: 10px 12px;
+}
+
+
+/* Add a clean effect when the user selects a form field. */
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #1769aa;
+    box-shadow: 0 0 0 0.15rem rgba(23, 105, 170, 0.15);
+}
+
+
+/* Style the main blue button. */
+
+.btn-primary {
+    background-color: #1769aa;
+    border-color: #1769aa;
+    border-radius: 7px;
+    padding: 9px 18px;
+}
+
+
+/* Change the button slightly when the mouse is over it. */
+
+.btn-primary:hover {
+    background-color: #12588d;
+    border-color: #12588d;
+}
+
+
+/* Give the cancel button rounded corners. */
+
+.btn-outline-secondary {
+    border-radius: 7px;
+    padding: 9px 18px;
+}
+
+
+/* Style the appointment confirmation header. */
+
+.confirmation-header {
+    background-color: #2e7d32 !important;
+}
+
+
+/* Keep confirmation heading white. */
+
+.confirmation-header h4 {
+    color: white !important;
+}
+
+
+/* Create clean rows for appointment information. */
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+
+/* Remove the border from the last information row. */
+
+.info-row:last-child {
+    border-bottom: none;
 }
 
 
@@ -27,10 +176,17 @@ table {
 }
 
 
-/* Give table headers a simple appearance. */
+/* Give table headers a modern appearance. */
 
 th {
     font-weight: 600;
+}
+
+
+/* Add a light effect when moving over table rows. */
+
+.table tbody tr:hover {
+    background-color: #f1f7fb;
 }
 
 
@@ -38,4 +194,88 @@ th {
 
 .btn {
     margin-right: 3px;
+}
+
+
+/* Keep the main page content comfortable to read. */
+
+.container {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* Modern navigation bar. */
+
+.modern-navbar {
+    background-color: #1769aa;
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Style the hospital name. */
+
+.hospital-name {
+    color: white !important;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+/* Create a simple medical plus symbol. */
+
+.hospital-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    background-color: white;
+    color: #1769aa;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+
+/* Style the navigation links. */
+
+.modern-nav-link {
+    color: white !important;
+    margin-left: 8px;
+    padding: 8px 14px !important;
+    border-radius: 6px;
+}
+
+
+/* Change navigation link appearance on hover. */
+
+.modern-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Give the main content some breathing room. */
+
+.main-content {
+    min-height: calc(100vh - 150px);
+    padding-top: 10px;
+}
+
+
+/* Style the footer. */
+
+.modern-footer {
+    background-color: #eaf2f8;
+    color: #607d8b;
+    padding: 22px 0;
+    margin-top: 50px;
+}
+
+
+/* Style the footer hospital name. */
+
+.modern-footer strong {
+    color: #1769aa;
 }
