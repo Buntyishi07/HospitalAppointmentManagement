@@ -1,0 +1,41 @@
+/* Set the general font and background of the website. */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f7f7;
+}
+
+
+/* Give the main heading a normal hospital-style appearance. */
+
+h1 {
+    margin-top: 10px;
+}
+
+
+/* Add a small shadow to cards. */
+
+.card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Keep table text easy to read. */
+
+table {
+    background-color: white;
+}
+
+
+/* Give table headers a simple appearance. */
+
+th {
+    font-weight: 600;
+}
+
+
+/* Add some spacing to buttons. */
+
+.btn {
+    margin-right: 3px;
+}

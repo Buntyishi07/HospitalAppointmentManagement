@@ -1,0 +1,63 @@
+@* This view receives a list of posts from the JSONPlaceholder API. *@
+@model List<HospitalAppointmentManagement.Models.Post>
+
+@* Set the page title. *@
+@{
+    ViewData["Title"] = "Posts";
+}
+
+@* Display the page heading. *@
+<h2>Posts from JSONPlaceholder</h2>
+
+@* Display a short explanation. *@
+<p class="text-muted">
+    Posts are retrieved asynchronously from an external web API.
+</p>
+
+@* Create a table for displaying the posts. *@
+<table class="table table-bordered table-hover">
+
+    @* Create the table header. *@
+    <thead class="table-light">
+
+        @* Create the header row. *@
+        <tr>
+
+            @* Display the post ID heading. *@
+            <th>Post ID</th>
+
+            @* Display the post title heading. *@
+            <th>Title</th>
+
+        </tr>
+
+    </thead>
+
+    @* Create the table body. *@
+    <tbody>
+
+        @* Loop through all posts received from the API. *@
+        @foreach (var post in Model)
+        {
+            @* Create a row for each post. *@
+            <tr>
+
+                @* Display the post ID. *@
+                <td>@post.Id</td>
+
+                @* Display the post title. *@
+                <td>@post.Title</td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+@* Create a button to return to the home page. *@
+<a asp-controller="Home"
+   asp-action="Index"
+   class="btn btn-secondary">
+    Back to Doctors
+</a>

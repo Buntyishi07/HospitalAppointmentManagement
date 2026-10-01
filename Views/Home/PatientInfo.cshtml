@@ -1,0 +1,36 @@
+@* Set the title of the page. *@
+@{
+    ViewData["Title"] = "Patient Information";
+}
+
+@* Display the page heading. *@
+<h2>Patient Information</h2>
+
+@* Create a card to display stored information. *@
+<div class="card mt-3">
+
+    @* Create the card body. *@
+    <div class="card-body">
+
+        @* Display the patient name stored in the cookie. *@
+        <p>
+            <strong>Patient Name from Cookie:</strong>
+            @ViewBag.PatientName
+        </p>
+
+        @* Display the specialization stored in the session. *@
+        <p>
+            <strong>Specialization from Session:</strong>
+            @ViewBag.Specialization
+        </p>
+
+    </div>
+
+</div>
+
+@* Create a button to return to the home page. *@
+<a asp-controller="Home"
+   asp-action="Index"
+   class="btn btn-secondary mt-3">
+    Back to Home
+</a>

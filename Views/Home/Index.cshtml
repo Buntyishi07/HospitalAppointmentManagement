@@ -1,0 +1,117 @@
+﻿@* This view receives a list of doctors from the controller. *@
+@model List<HospitalAppointmentManagement.Models.Doctor>
+
+@* Set the title of the page. *@
+@{
+    ViewData["Title"] = "Hospital Appointment Management";
+}
+
+@* Display the main heading. *@
+<div class="text-center mb-4">
+
+    @* Display the hospital name. *@
+    <h1>City Care Hospital</h1>
+
+    @* Display a simple description. *@
+    <p class="text-muted">Hospital Appointment Management System</p>
+
+</div>
+
+@* Display a heading for the doctor list. *@
+<h3>Available Doctors</h3>
+
+@* Display doctors inside a responsive table. *@
+<div class="table-responsive">
+
+    @* Create the doctor information table. *@
+    <table class="table table-bordered table-hover">
+
+        @* Create the table header. *@
+        <thead class="table-light">
+
+            @* Create the header row. *@
+            <tr>
+
+                @* Display the Doctor ID heading. *@
+                <th>Doctor ID</th>
+
+                @* Display the doctor name heading. *@
+                <th>Doctor Name</th>
+
+                @* Display the specialization heading. *@
+                <th>Specialization</th>
+
+                @* Display the experience heading. *@
+                <th>Experience</th>
+
+                @* Display the consultation fee heading. *@
+                <th>Consultation Fee</th>
+
+                @* Display the action heading. *@
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        @* Create the table body. *@
+        <tbody>
+
+            @* Loop through every doctor received from the controller. *@
+            @foreach (var doctor in Model)
+            {
+                @* Create one table row for each doctor. *@
+                <tr>
+
+                    @* Display the doctor ID. *@
+                    <td>@doctor.DoctorId</td>
+
+                    @* Display the doctor's name. *@
+                    <td>@doctor.DoctorName</td>
+
+                    @* Display the doctor's specialization. *@
+                    <td>@doctor.Specialization</td>
+
+                    @* Display the doctor's experience. *@
+                    <td>@doctor.Experience years</td>
+
+                    @* Display the consultation fee. *@
+                    <td>₹@doctor.ConsultationFee</td>
+
+                    @* Display a button for viewing doctor details. *@
+                    <td>
+                        <a asp-controller="Home"
+                           asp-action="Details"
+                           asp-route-DoctorId="@doctor.DoctorId"
+                           class="btn btn-sm btn-outline-primary">
+                            Details
+                        </a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+@* Display navigation buttons for other practical requirements. *@
+<div class="mt-4">
+
+    @* Link to the asynchronous posts page. *@
+    <a asp-controller="Home"
+       asp-action="Posts"
+       class="btn btn-secondary">
+        View Posts
+    </a>
+
+    @* Link to the patient information page. *@
+    <a asp-controller="Home"
+       asp-action="PatientInfo"
+       class="btn btn-outline-secondary">
+        Patient Information
+    </a>
+
+</div>

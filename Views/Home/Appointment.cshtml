@@ -1,0 +1,110 @@
+@* Set the title of the page. *@
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+@* Check whether the appointment has been submitted. *@
+@if (ViewBag.PatientName != null)
+{
+    @* Display appointment confirmation after form submission. *@
+    <div class="alert alert-success">
+
+        @* Display confirmation heading. *@
+        <h4>Appointment Request Submitted</h4>
+
+        @* Display the patient name. *@
+        <p>
+            <strong>Patient Name:</strong>
+            @ViewBag.PatientName
+        </p>
+
+        @* Display the doctor ID. *@
+        <p>
+            <strong>Doctor ID:</strong>
+            @ViewBag.DoctorId
+        </p>
+
+        @* Display the selected specialization. *@
+        <p>
+            <strong>Specialization:</strong>
+            @ViewBag.Specialization
+        </p>
+
+        @* Display a simple confirmation message. *@
+        <p>Your appointment request has been received.</p>
+
+    </div>
+}
+else
+{
+    @* Display the appointment form. *@
+    <h2>Book Doctor Appointment</h2>
+
+    @* Create the appointment form. *@
+    <form asp-controller="Home"
+          asp-action="Appointment"
+          method="post"
+          class="mt-3">
+
+        @* Hidden field stores the DoctorId. *@
+        <input type="hidden"
+               name="DoctorId"
+               value="@ViewBag.Doctor.DoctorId" />
+
+        @* Create the patient name input. *@
+        <div class="mb-3">
+
+            @* Display the patient name label. *@
+            <label class="form-label">Patient Name</label>
+
+            @* Create the patient name textbox. *@
+            <input type="text"
+                   name="PatientName"
+                   class="form-control"
+                   placeholder="Enter patient name"
+                   required />
+
+        </div>
+
+        @* Create the specialization selection. *@
+        <div class="mb-3">
+
+            @* Display the specialization label. *@
+            <label class="form-label">Specialization</label>
+
+            @* Create a dropdown for specialization. *@
+            <select name="Specialization"
+                    class="form-select"
+                    required>
+
+                @* Display the selected doctor's specialization. *@
+                <option value="@ViewBag.Doctor.Specialization">
+                    @ViewBag.Doctor.Specialization
+                </option>
+
+            </select>
+
+        </div>
+
+        @* Display the selected doctor name. *@
+        <p>
+            <strong>Doctor:</strong>
+            @ViewBag.Doctor.DoctorName
+        </p>
+
+        @* Submit the appointment form. *@
+        <button type="submit"
+                class="btn btn-primary">
+            Submit Appointment
+        </button>
+
+        @* Return to the doctor details page. *@
+        <a asp-controller="Home"
+           asp-action="Details"
+           asp-route-DoctorId="@ViewBag.Doctor.DoctorId"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+}

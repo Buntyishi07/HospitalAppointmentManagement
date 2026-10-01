@@ -1,0 +1,59 @@
+@* This view receives one Doctor object from the controller. *@
+@model HospitalAppointmentManagement.Models.Doctor
+
+@* Set the page title. *@
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+@* Display the doctor details heading. *@
+<h2>Doctor Details</h2>
+
+@* Create a simple card for doctor information. *@
+<div class="card mt-3">
+
+    @* Create the card body. *@
+    <div class="card-body">
+
+        @* Display the doctor's name. *@
+        <h4 class="card-title">@Model.DoctorName</h4>
+
+        @* Display the doctor's ID. *@
+        <p><strong>Doctor ID:</strong> @Model.DoctorId</p>
+
+        @* Display the doctor's specialization. *@
+        <p><strong>Specialization:</strong> @Model.Specialization</p>
+
+        @* Display the doctor's experience. *@
+        <p><strong>Experience:</strong> @Model.Experience years</p>
+
+        @* Display the consultation fee. *@
+        <p><strong>Consultation Fee:</strong> ₹@Model.ConsultationFee</p>
+
+        @* Display the fixed service charge. *@
+        <p><strong>Service Charge:</strong> ₹100</p>
+
+        @* Display the total consultation charge calculated by the extension method. *@
+        <p>
+            <strong>Total Consultation Charge:</strong>
+            ₹@ViewBag.TotalCharge
+        </p>
+
+        @* Create an appointment button. *@
+        <a asp-controller="Home"
+           asp-action="Appointment"
+           asp-route-DoctorId="@Model.DoctorId"
+           class="btn btn-primary">
+            Book Appointment
+        </a>
+
+        @* Create a button to return to the doctor list. *@
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Back
+        </a>
+
+    </div>
+
+</div>

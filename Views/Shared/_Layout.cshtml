@@ -1,0 +1,103 @@
+﻿@* Define the common layout used by all pages. *@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    @* Set the character encoding. *@
+    <meta charset="utf-8" />
+
+    @* Make the website responsive on different screen sizes. *@
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @* Display the current page title. *@
+    <title>@ViewData["Title"] - City Care Hospital</title>
+
+    @* Load Bootstrap CSS from the local project. *@
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @* Load the application's custom CSS file. *@
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+</head>
+
+<body>
+
+    @* Create the navigation bar. *@
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+
+        @* Keep navigation content centered. *@
+        <div class="container">
+
+            @* Display the hospital name. *@
+            <a class="navbar-brand"
+               asp-controller="Home"
+               asp-action="Index">
+                City Care Hospital
+            </a>
+
+            @* Display the navigation menu. *@
+            <div>
+
+                @* Link to the doctor list. *@
+                <a class="btn btn-sm btn-light me-1"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    Doctors
+                </a>
+
+                @* Link to the API posts page. *@
+                <a class="btn btn-sm btn-light me-1"
+                   asp-controller="Home"
+                   asp-action="Posts">
+                    Posts
+                </a>
+
+                @* Link to stored patient information. *@
+                <a class="btn btn-sm btn-light"
+                   asp-controller="Home"
+                   asp-action="PatientInfo">
+                    Patient Info
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    @* Create the main page container. *@
+    <div class="container mt-4">
+
+        @* Render the contents of each individual view. *@
+        @RenderBody()
+
+    </div>
+
+    @* Create a simple footer. *@
+    <footer class="border-top mt-5 py-3 text-center text-muted">
+
+        @* Display the project name. *@
+        Hospital Appointment Management System
+
+    </footer>
+
+    @* Load Bootstrap JavaScript. *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    @* Load Bootstrap bundle JavaScript. *@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @* Load custom application JavaScript. *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Allow individual views to add additional scripts. *@
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>
